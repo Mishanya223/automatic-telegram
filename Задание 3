@@ -1,0 +1,19 @@
+def pr6(k):
+    while k > 0:
+        if k % 10 == 6:
+            return True
+        k //= 10
+    return False
+
+def f(a, b, c, d):
+    if a < b or pr6(a):
+        return 0
+    if a == b:
+        return 1
+    if d == 1:
+        return f(a-2, b, 1, 0) + f(a-3, b, 1, 0)
+    if c == 1:
+        return f(a//2, b, 0, 1)
+    return f(a-2, b, 1, 0) + f(a-3, b, 1, 0) + f(a//2, b, 0, 1)
+
+print(f(320, 15, 0, 0))
